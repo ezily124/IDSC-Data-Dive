@@ -1,0 +1,71 @@
+import pandas as pd
+import numpy as np
+# import matplotlib.pyplot as plt
+
+df = pd.read_csv('/Users/wumble/Downloads/archive-1/food_access_research_atlas.csv')
+
+df.isna().sum()
+
+nan_rows = df[df.isna().any(axis=1)]
+
+import pandas as pd
+
+# # Set display options
+# pd.set_option('display.max_columns', None)  # Show all columns
+# pd.set_option('display.width', 100)  # Set the width of the display
+
+# # Example DataFrame
+# df = pd.DataFrame({
+#     'LILATracts_1And10': [1, 2, 3],
+#     'LowIncomeTracts': [4, 5, 6],
+#     'PovertyRate': [7, 8, 9],
+#     'MedianFamilyIncome': [10, 11, 12],
+#     'LALOWI1_20': [13, 14, 15],
+#     'LALOWI05_10': [16, 17, 18],
+#     'LALOWI1_10': [19, 20, 21],
+#     'LAPOP1_20': [22, 23, 24],
+#     'LAPOP05_10': [25, 26, 27],
+#     'LILATracts_Vehicle': [28, 29, 30],
+#     'LILATracts_1And20': [31, 32, 33],
+#     'LILATracts_halfAnd10': [34, 35, 36]
+# })
+
+# # Displaying selected columns
+# selected_columns = df[['LILATracts_1And10', 
+#                        'LowIncomeTracts', 
+#                        'PovertyRate', 
+#                        'MedianFamilyIncome', 
+#                        'LALOWI1_20', 
+#                        'LALOWI05_10', 
+#                        'LALOWI1_10', 
+#                        'LAPOP1_20', 
+#                        'LAPOP05_10', 
+#                        'LILATracts_Vehicle', 
+#                        'LILATracts_1And20', 
+#                        'LILATracts_halfAnd10']]
+
+# print(selected_columns)
+
+# # Display the rows with NaN values
+# # print(nan_rows)
+# Select specific columns
+selected_columns = df[[ 
+                       'LowIncomeTracts', 
+                       'PovertyRate', 
+                       'MedianFamilyIncome', 
+                       'LALOWI1_20', 
+                       'LALOWI05_10', 
+                       'LALOWI1_10', 
+                       'LAPOP1_20', 
+                       'LAPOP05_10',
+                       'LILATracts_1And10', 
+                       'LILATracts_Vehicle', 
+                       'LILATracts_1And20', 
+                       'LILATracts_halfAnd10']]
+# Calculate correlation
+correlation_matrix = selected_columns.corr()
+print(correlation_matrix)
+
+# df.corr()
+
+
